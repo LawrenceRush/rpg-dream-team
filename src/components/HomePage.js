@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import Card from "./Card"
+import CharacterContext from '../utils/CharacterContext'
 
 
 
-function Home(charactersParam) {
-   
-    let characters = charactersParam.characters
+const Home= () => {
+    const Context= useContext(CharacterContext);
+    const { state: Characters} = Context
+    const { addCharacter} = Context
+    
+    
+    
 return(
-    <div className="App">
-    {characters.map((character) => { return <Card key = {character.id} character = {character}/>})}
+    <div className="App" onClick={addCharacter}>
+    {Characters.map((character) =>  <Card key = {character.id} character = {character}/>)}
    </div>
 
   );

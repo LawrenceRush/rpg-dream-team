@@ -1,28 +1,19 @@
-import React, { useState } from "react";
-import useSignUpForm from '../components/CustomHooks';
-
-
-
-
+import React, { useState, useContext } from "react";
+import useSignUpForm from '../utils/CustomHooks';
+import CharacterContext from '../utils/CharacterContext'
 
 function Add() {
-
-    const signup = () => {
-        alert(`User Created!
-               Name: ${inputs.name} ${inputs.powerLevel}
-               Email: ${inputs.age}`);
-      }
-    
-    const {inputs, handleInputChange, handleSubmit} = useSignUpForm(signup);
-
+  const Context = useContext(CharacterContext)
+  const{handleInputChange, handleSubmit, obj} = Context
+  
 return(
   <form onSubmit={handleSubmit}>
   <label>Name</label>
-  <input  name="name" type="text" onChange={handleInputChange} value={inputs.name} required/>
+  <input  name="name" type="text" onChange={handleInputChange} value={obj.name} required/>
   <label>powerLevel</label>
-  <input  name="powerLevel" type="text" onChange={handleInputChange} value={inputs.powerLevel} required/>
+  <input  name="powerlevel" type="text" onChange={handleInputChange} value={obj.powerlevel} required/>
   <label>age</label>
-  <input  name="age" type="text" onChange={handleInputChange} value={inputs.age} required/>
+  <input  name="age" type="text" onChange={handleInputChange} value={obj.age} required/>
   <button type="submit">Add</button>
 </form>
   );
