@@ -4,9 +4,12 @@ import CharacterContext from '../utils/CharacterContext'
 
 function Add() {
   const Context = useContext(CharacterContext)
-  const{handleInputChange, handleSubmit, obj} = Context
+  
+  const{handleInputChange, handleSubmit, obj} = Context.bunchaFunctions
   
 return(
+  <div>
+  
   <form onSubmit={handleSubmit}>
   <label>Name</label>
   <input  name="name" type="text" onChange={handleInputChange} value={obj.name} required/>
@@ -16,6 +19,7 @@ return(
   <input  name="age" type="text" onChange={handleInputChange} value={obj.age} required/>
   <button type="submit">Add</button>
 </form>
+</div>
   );
 }
  

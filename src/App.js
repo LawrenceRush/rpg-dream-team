@@ -4,7 +4,7 @@ import Home from './components/HomePage'
 import Add from './components/AddPage'
 import Nav from "./components/Nav"
 import './App.css';
-import ChatacterContext from './utils/CharacterContext'
+import CharacterContext from './utils/CharacterContext'
 import {
   BrowserRouter as Router, Switch, Route
 } from "react-router-dom";
@@ -24,9 +24,20 @@ function App() {
     age: ""
   });
 
+  const [checkBoxStatus, setCheckBoxStatus] = useState(
+    false
+  )
+
+  const [index, SetIndex] = useState(
+    3
+  )
+
+  
+
   const addCharacter = () => {
+    console.log(obj)
      setState([...state, obj])
-    console.log(state)
+     SetIndex(index+1)
   }
   
 
@@ -38,19 +49,33 @@ function App() {
   }
   const handleInputChange = (event) => {
     event.persist();
-    setobj(Obj => ({...Obj, [event.target.name]: event.target.value}));
+    setobj(Obj => ({...Obj, id:index, [event.target.name]: event.target.value}));
+  }
+
+  const handleCheckBox = () => {(setCheckBoxStatus(!checkBoxStatus))
+  }
+
+  const bunchaFunctions = {
+    addCharacter,  
+    handleInputChange,
+     handleSubmit,
+     obj, 
+     checkBoxStatus,
+     handleCheckBox
+    
   }
   return (
 
-    <ChatacterContext.Provider value={{ state, addCharacter: addCharacter, handleInputChange: handleInputChange, handleSubmit,obj }}>
+    <CharacterContext.Provider value={{ state, bunchaFunctions}}>
       <Router>
         <Nav />
+        
         <Switch>
           <Route path="/Add"> <Add /> </Route>
           <Route path="/"> <Home /> </Route>
         </Switch>
       </Router>
-    </ChatacterContext.Provider>
+    </CharacterContext.Provider>
   );
 }
 
