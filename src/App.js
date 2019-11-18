@@ -23,19 +23,14 @@ function App() {
     powerlevel: "",
     age: ""
   });
-
-  const [checkBoxStatus, setCheckBoxStatus] = useState(
-    false
-  )
-
-  const [index, SetIndex] = useState(
-    3
-  )
+const [alphaCheckBoxStatus, setAlphaCheckBoxStatus] = useState(false)
+const [filterPowerCheckBoxStatus, setFilterPowerCheckBoxStatus] = useState(false)
+const [index, SetIndex] = useState(3)
+const [powerLevelFilter, setPowerLevelFilter] = useState(0)
 
   
 
   const addCharacter = () => {
-    console.log(obj)
      setState([...state, obj])
      SetIndex(index+1)
   }
@@ -49,21 +44,26 @@ function App() {
   }
   const handleInputChange = (event) => {
     event.persist();
-    setobj(Obj => ({...Obj, id:index, [event.target.name]: event.target.value}));
-  }
+    setobj(Obj => ({
+      ...Obj, id:index, [event.target.name]:  (parseInt(event.target.value) ? parseInt(event.target.value) : event.target.value)
+  }))}
 
-  const handleCheckBox = () => {(setCheckBoxStatus(!checkBoxStatus))
-  }
+  const handleAlphaCheckBox = () => {(setAlphaCheckBoxStatus(!alphaCheckBoxStatus))}
+  const handleFilterPowerCheckBox = () => {(setFilterPowerCheckBoxStatus(!filterPowerCheckBoxStatus))}
+  const handlePowerLevelFilter = (event) => {(setPowerLevelFilter(parseInt(event.target.value)))}
 
   const bunchaFunctions = {
     addCharacter,  
     handleInputChange,
      handleSubmit,
      obj, 
-     checkBoxStatus,
-     handleCheckBox
-    
-  }
+     alphaCheckBoxStatus,
+     filterPowerCheckBoxStatus,
+     handleAlphaCheckBox,
+     handleFilterPowerCheckBox,
+     powerLevelFilter, 
+     handlePowerLevelFilter
+    }
   return (
 
     <CharacterContext.Provider value={{ state, bunchaFunctions}}>

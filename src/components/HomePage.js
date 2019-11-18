@@ -1,7 +1,11 @@
 import React, { useContext } from "react";
 import Card from "./Card"
 import CharacterContext from '../utils/CharacterContext'
-import CheckBox from './CheckBox'
+import AlphaCheckBox from './AlphaCheckBox'
+import FilterPowerCheckBox from './FilterPowerCheckBox'
+import DropDown from './DropDown'
+import './../css/homePage.css'
+
 
 
 
@@ -9,8 +13,10 @@ import CheckBox from './CheckBox'
 const Home= () => {
     const Context= useContext(CharacterContext);
     const { state: Characters} = Context
-    const { addCharacter} = Context.bunchaFunctions
-    const {checkBoxStatus} = Context.bunchaFunctions
+    const {alphaCheckBoxStatus} = Context.bunchaFunctions
+    const {filterPowerCheckBoxStatus} = Context.bunchaFunctions
+    const {powerLevelFilter} = Context.bunchaFunctions
+
    //Sort the funtion Aphabetically
     
  
@@ -29,34 +35,38 @@ const Home= () => {
         }
         return comparison;
       }
-      console.log("Characters",Characters)
+     
     let alphabetCharacters = [...Characters].sort(compare)
+    var filteredCharacters  =  Characters.filter(character => {
+    return character.powerlevel > powerLevelFilter
+    });
+    
+    
    
-    console.log("Characters",Characters)
-    console.log("alphaCharacters", alphabetCharacters)
+ 
       // check if any checkboxes are displayed and return a map of cards based on that
     const determineOrder = () => {
+      if (filterPowerCheckBoxStatus) {
+        console.log('working')
+        console.log(filteredCharacters)
         
-        if (checkBoxStatus) {
-            console.log("accessing alpha")
-            console.log("alpa chars", alphabetCharacters)
-            return alphabetCharacters.map((character) =>  <Card key = {character.id} character = {character}/>)
-            
-        }
-        console.log(" just accessing")
-        console.log('normalChars', Characters)
-        return Characters.map((character) =>  <Card key = {character.id} character = {character}/>)
-       
+        return filteredCharacters.map((character) =>  <Card key = {character.id} character = {character}/>)
     }
-  
-  
-    
-    
-    
+        if (alphaCheckBoxStatus) {
+            return alphabetCharacters.map((character) =>  <Card key = {character.id} character = {character}/>)
+        }
+       return Characters.map((character) =>  <Card key = {character.id} character = {character}/>)
+    }
 return(
     <div>
-    <CheckBox />
-    <div className="App" onClick={addCharacter}>
+      <div  className = "filterDiv">Filter 
+      <span className = "filterStuff"> <FilterPowerCheckBox /> By: <DropDown/></span>
+      
+    </div>
+    <div className = "sortDiv">Sort by alphabet
+    <AlphaCheckBox />
+      </div>
+    <div className="App" >
     {determineOrder()}
    </div>
    </div>

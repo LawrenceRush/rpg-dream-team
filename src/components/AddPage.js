@@ -14,9 +14,9 @@ return(
   <label>Name</label>
   <input  name="name" type="text" onChange={handleInputChange} value={obj.name} required/>
   <label>powerLevel</label>
-  <input  name="powerlevel" type="text" onChange={handleInputChange} value={obj.powerlevel} required/>
+  <input  name="powerlevel" type="number" onChange={handleInputChange} value={obj.powerlevel} required/>
   <label>age</label>
-  <input  name="age" type="text" onChange={handleInputChange} value={obj.age} required/>
+  <input  name="age" type="number" onChange={handleInputChange} value={obj.age} required/>
   <button type="submit">Add</button>
 </form>
 </div>
