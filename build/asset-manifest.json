@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/LawrenceRush/rpg-dream-team/static/css/main.fc46a2fb.chunk.css",
+    "main.js": "/LawrenceRush/rpg-dream-team/static/js/main.d1957e5e.chunk.js",
+    "main.js.map": "/LawrenceRush/rpg-dream-team/static/js/main.d1957e5e.chunk.js.map",
+    "runtime-main.js": "/LawrenceRush/rpg-dream-team/static/js/runtime-main.a543f3fe.js",
+    "runtime-main.js.map": "/LawrenceRush/rpg-dream-team/static/js/runtime-main.a543f3fe.js.map",
+    "static/css/2.b0bb7f2c.chunk.css": "/LawrenceRush/rpg-dream-team/static/css/2.b0bb7f2c.chunk.css",
+    "static/js/2.c62734a1.chunk.js": "/LawrenceRush/rpg-dream-team/static/js/2.c62734a1.chunk.js",
+    "static/js/2.c62734a1.chunk.js.map": "/LawrenceRush/rpg-dream-team/static/js/2.c62734a1.chunk.js.map",
+    "index.html": "/LawrenceRush/rpg-dream-team/index.html",
+    "precache-manifest.03b798a1913d2c3c39ed78325c5092d7.js": "/LawrenceRush/rpg-dream-team/precache-manifest.03b798a1913d2c3c39ed78325c5092d7.js",
+    "service-worker.js": "/LawrenceRush/rpg-dream-team/service-worker.js",
+    "static/css/2.b0bb7f2c.chunk.css.map": "/LawrenceRush/rpg-dream-team/static/css/2.b0bb7f2c.chunk.css.map",
+    "static/css/main.fc46a2fb.chunk.css.map": "/LawrenceRush/rpg-dream-team/static/css/main.fc46a2fb.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a543f3fe.js",
+    "static/css/2.b0bb7f2c.chunk.css",
+    "static/js/2.c62734a1.chunk.js",
+    "static/css/main.fc46a2fb.chunk.css",
+    "static/js/main.d1957e5e.chunk.js"
+  ]
+}
